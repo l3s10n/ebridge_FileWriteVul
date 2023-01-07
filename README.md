@@ -133,6 +133,7 @@ public void save() throws Exception {
     }
     ...
 }
+```
 
 其中`WeWorkAgentInfoModel.dao.update(appInfo);`实现了创建应用，我们在后面需要用到创建的应用id，所以我们需要能控创建的应用id，审计`WeWorkAgentInfoModel appInfo = (WeWorkAgentInfoModel)this.getModel(WeWorkAgentInfoModel.class, "appInfo");`的getModel方法，它最终会调用到com.jfinal.core.ModelInjector的injectActiveRecordModel方法，该方法的关键代码如下：
 
