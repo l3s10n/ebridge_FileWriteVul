@@ -296,7 +296,7 @@ public void sendFile() {
 }            
 ```
 
-其中`String fileid = this.getPara("fileid");`要求我们访问的时候得加上fileid参数，例如`?fileid=1`，`OutSysInfo outSys = wxcu.getLastAccessOutSys();`会返回我们之前在“绑定外部系统”中绑定的外部系统，`WxCpConfigStorage wxCpConfigStorage = WxConfigDataProvider.getWxCpConfigStorageBySysAgentId(sysagentid);`会根据sysagentid返回应用，而sysagentid来自于`wxcu.getCurrentSysAppId();`，它会返回我们之前在“绑定应用”中绑定的应用。
+其中`String fileid = this.getPara("fileid");`要求我们访问的时候得加上fileid参数，例如`?fileid=1`，`OutSysInfo outSys = wxcu.getLastAccessOutSys();`会返回我们之前在“绑定外部系统”中绑定的外部系统，`WxCpConfigStorage wxCpConfigStorage = WxConfigDataProvider.getWxCpConfigStorageBySysAgentId(sysagentid);`会根据sysagentid返回应用，而sysagentid来自于`wxcu.getCurrentSysAppId();`，它会返回我们之前在“绑定应用”中绑定的应用id。
 
 这里会执行到关键函数`fd.downLoad(outSys, ous, fileid, "", this.getRequest(), this.getResponse());`，这里的fd由外部系统而来，我们设置的外部系统是ecology，那么这里的fd就是EcologyFileDownload，它的downLoad函数的关键代码如下：
 
